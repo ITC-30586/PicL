@@ -36,7 +36,7 @@ Public Class Form1
             stCurrentDir = System.IO.Directory.GetCurrentDirectory()
 
             ' 初期化処理
-            InitializeZoomPanel()
+            'InitializeZoomPanel()
             Call Init_Form1()
             Call Init_C1FG01()
             Call InitializeCellStyles()
@@ -53,20 +53,20 @@ Public Class Form1
         Return Process.GetProcessesByName(pn).GetUpperBound(0) > 0
     End Function
 
-    ' ZoomPanelの初期化
-    Private Sub InitializeZoomPanel()
-        With C1ZoomPanel1
-            .ZoomFactor = 1.0F
-            .MaxZoomFactor = 4.0F
-            .AllowDoubleTapZoom = True
-            .ZoomSnapDistance = 0.05F
-            .ZoomSnapPoints.Add(2.0F)
-            .ZoomSnapPoints.Add(3.0F)
-            .ZoomSnapPoints.Add(4.0F)
-            .InnerPanelLayoutMode = InnerPanelLayoutMode.MiddleCenter
-            .BoundaryFeedbackMode = BoundaryFeedbackMode.Standard
-        End With
-    End Sub
+    '' ZoomPanelの初期化
+    'Private Sub InitializeZoomPanel()
+    '    With C1ZoomPanel1
+    '        .ZoomFactor = 1.0F
+    '        .MaxZoomFactor = 4.0F
+    '        .AllowDoubleTapZoom = True
+    '        .ZoomSnapDistance = 0.05F
+    '        .ZoomSnapPoints.Add(2.0F)
+    '        .ZoomSnapPoints.Add(3.0F)
+    '        .ZoomSnapPoints.Add(4.0F)
+    '        .InnerPanelLayoutMode = InnerPanelLayoutMode.MiddleCenter
+    '        .BoundaryFeedbackMode = BoundaryFeedbackMode.Standard
+    '    End With
+    'End Sub
 
     ' セルスタイルの初期化
     Private Sub InitializeCellStyles()
@@ -139,6 +139,10 @@ Public Class Form1
                 C1FlexGrid1.BackgroundImageLayout = ImageLayout.Stretch
             End If
 
+            '(1,1)-(100,100)のグリッド作成
+            C1FlexGrid1.Cols(0).Visible = False
+            C1FlexGrid1.Rows(0).Visible = False
+
             ' 罫線設定
             With C1FlexGrid1.Styles.Normal.Border
                 .Color = System.Drawing.Color.Gray
@@ -178,7 +182,7 @@ Public Class Form1
     End Sub
 
     ' レコード選択
-    Private Sub C1FlexGrid1_Click(sender As Object, e As EventArgs)
+    Private Sub C1FlexGrid1_Click(sender As Object, e As EventArgs) Handles C1FlexGrid1.Click
         Try
             Dim x As Integer = C1FlexGrid1.Col
             Dim y As Integer = C1FlexGrid1.Row
@@ -206,7 +210,8 @@ Public Class Form1
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
-        C1ZoomPanel1.ZoomFactor = 2.0F
+
+
     End Sub
 
 End Class

@@ -22,31 +22,23 @@ Partial Class Form1
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.C1ZoomPanel1 = New C1.Win.TouchToolKit.C1ZoomPanel()
         Me.C1FlexGrid1 = New C1.Win.C1FlexGrid.C1FlexGrid()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         CType(Me.C1FlexGrid1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'C1ZoomPanel1
-        '
-        Me.C1ZoomPanel1.Location = New System.Drawing.Point(260, 662)
-        Me.C1ZoomPanel1.Name = "C1ZoomPanel1"
-        Me.C1ZoomPanel1.Size = New System.Drawing.Size(200, 100)
-        Me.C1ZoomPanel1.TabIndex = 0
-        '
         'C1FlexGrid1
         '
         Me.C1FlexGrid1.ColumnInfo = "10,1,0,0,0,-1,Columns:"
-        Me.C1FlexGrid1.Location = New System.Drawing.Point(923, 427)
+        Me.C1FlexGrid1.Location = New System.Drawing.Point(29, 24)
         Me.C1FlexGrid1.Name = "C1FlexGrid1"
-        Me.C1FlexGrid1.Size = New System.Drawing.Size(240, 150)
+        Me.C1FlexGrid1.Size = New System.Drawing.Size(1504, 906)
         Me.C1FlexGrid1.TabIndex = 1
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(1806, 280)
+        Me.Button1.Location = New System.Drawing.Point(1751, 328)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 2
@@ -55,7 +47,7 @@ Partial Class Form1
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(1785, 557)
+        Me.TextBox1.Location = New System.Drawing.Point(1740, 568)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(100, 19)
         Me.TextBox1.TabIndex = 3
@@ -69,7 +61,6 @@ Partial Class Form1
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.C1FlexGrid1)
-        Me.Controls.Add(Me.C1ZoomPanel1)
         Me.Name = "Form1"
         Me.Text = "Form1"
         CType(Me.C1FlexGrid1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -77,8 +68,6 @@ Partial Class Form1
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents C1ZoomPanel1 As C1.Win.TouchToolKit.C1ZoomPanel
     Friend WithEvents C1FlexGrid1 As C1.Win.C1FlexGrid.C1FlexGrid
     Friend WithEvents Button1 As Button
     Friend WithEvents TextBox1 As TextBox
