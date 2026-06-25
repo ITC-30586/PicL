@@ -236,7 +236,8 @@ Public Class Form1
 
     ' 背景画像読み込み
     Private Sub LoadBackgroundImage()
-        Dim imagePath As String = System.IO.Path.Combine(Application.StartupPath, "Sample.png")
+        Dim imagePath As String = System.IO.Path.Combine(Application.StartupPath, "default.png")
+        'Dim imagePath As String = System.IO.Path.Combine(Application.StartupPath, "Sample.png")
         If System.IO.File.Exists(imagePath) Then
             C1FlexGrid1.BackgroundImage = Image.FromFile(imagePath)
             C1FlexGrid1.BackgroundImageLayout = ImageLayout.Stretch
@@ -401,6 +402,53 @@ Public Class Form1
             WriteErrorLog("CloseConnections", ex.Message)
         End Try
     End Sub
+
+    'DEMOスタート　画像読み込み
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
+        Dim imagePath As String = System.IO.Path.Combine(Application.StartupPath, "Sample.png")
+        If System.IO.File.Exists(imagePath) Then
+            C1FlexGrid1.BackgroundImage = Image.FromFile(imagePath)
+            C1FlexGrid1.BackgroundImageLayout = ImageLayout.Stretch
+        End If
+
+        '作業番号採番　コード読み取りによるトリガー処理？　2Dコード重複チェック
+        Dim strSQL As String
+        Dim cmd As NpgsqlCommand
+        Dim rs As NpgsqlDataReader
+        Dim Num As Integer
+
+
+        strSQL = ""
+        strSQL = strSQL + "SELECT * FROM work01 "
+        strSQL = strSQL + "WHERE work2d = 'TC260120134350903B1015021261ZZ' "
+        cn1.Open()
+        cmd = New NpgsqlCommand
+        cmd.Connection = cn1
+        cmd.CommandText = strSQL
+        cmd.CommandType = CommandType.Text
+        Num = cmd.ExecuteScalar
+        cn1.Close()
+
+        If Num = 0 Then
+
+
+
+
+
+
+
+
+
+        Else
+            MessageBox.Show("このコードは既に登録されています。", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+
+
+
+
+    End Sub
+
 
 End Class
 
